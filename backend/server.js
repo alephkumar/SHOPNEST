@@ -48,6 +48,11 @@ app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(xss());
 
+// --- Root route ---
+app.get('/', (req, res) => {
+  res.send('ShopNest API is running! Access endpoints at /api');
+});
+
 // --- Health check ---
 app.get('/api/health', (req, res) => {
   res.status(200).json({ success: true, message: 'ShopNest API is running', timestamp: new Date() });
